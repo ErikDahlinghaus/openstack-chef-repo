@@ -14,7 +14,7 @@
         "net.ipv4.ip_forward": 1
       },
       "secret": {
-        "key_path": "/opt/openstack/openstack-chef-repo/.chef/encrypted_data_bag_secret"
+        "key_path": "/opt/corista/openstack-chef-repo/.chef/encrypted_data_bag_secret"
       },
       "bind_service": {
         "db": { "host": "0.0.0.0"},
