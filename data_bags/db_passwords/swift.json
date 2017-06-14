@@ -1,0 +1,9 @@
+{
+  "id": "swift",
+  "swift": {
+    "encrypted_data": "pUwMKpsCSzj3FX/+inSbe06eS2Y2E6D7BN5IKfM+BQ8=\n",
+    "iv": "2AB1TJ+217kJMrgfOzYgYQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "murano",
+  "murano": {
+    "encrypted_data": "W6bMEY90FIJ9Jr/owb7pTCroLjLB5RQKW5Y4P42Wb5Q=\n",
+    "iv": "5wIPh9HQQMwJrFZ4kBRBTg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

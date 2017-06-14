@@ -1,0 +1,56 @@
+{
+  "name": "corista-openstack-controller-identity",
+  "description": "Setup up Corista Openstack Controller identity",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "openstack": {
+      "region": "Somerville",
+      "apt": {
+        "update_apt_cache": true
+      },
+      "sysctl": {
+        "net.ipv4.ip_forward": 1
+      },
+      "secret": {
+        "key_path": "/opt/openstack/openstack-chef-repo/.chef/encrypted_data_bag_secret"
+      },
+      "bind_service": {
+        "db": { "host": "0.0.0.0"},
+        "mq": { "host": "0.0.0.0"},
+        "admin": {
+          "identity": { "host": "0.0.0.0" }
+        },
+        "internal": {
+          "identity": { "host": "0.0.0.0" }
+        },
+        "public": {
+          "identity": { "host": "0.0.0.0" }
+        }
+      },
+      "endpoints": {
+        "db": { "host": "192.168.201.10" },
+        "mq": { "host": "192.168.201.10" },
+        "admin": {
+          "identity": { "host": "192.168.200.10" }
+        },
+        "internal": {
+          "identity": { "host": "192.168.200.10" }
+        },
+        "public": {
+          "identity": { "host": "192.168.200.10" }
+        }
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[openstack-common]",
+    "recipe[openstack-identity::server-apache]",
+    "recipe[openstack-identity::registration]",
+    "recipe[openstack-identity::openrc]"
+  ],
+  "env_run_lists": {
+  }
+}

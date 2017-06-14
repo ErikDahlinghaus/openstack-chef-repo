@@ -4,8 +4,8 @@
 current_dir = File.dirname(__FILE__)
 log_level :info
 log_location STDOUT
-node_name 'openstack_node'
-client_key "#{current_dir}/openstack_node.pem"
+node_name 'controller_node'
+client_key "#{current_dir}/controller_node.pem"
 validation_client_name 'chef-validator'
 validation_key "#{current_dir}/validator.pem"
 chef_server_url 'https://localhost/organizations/corista'

@@ -1,0 +1,15 @@
+{
+  "name": "corista-openstack-default",
+  "description": "Installs a minimal set of fixes for the base OS for Openstack install",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[corista-openstack::corista_user]"
+  ],
+  "env_run_lists": {
+  }
+}

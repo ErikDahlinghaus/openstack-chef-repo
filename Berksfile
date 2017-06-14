@@ -24,3 +24,5 @@ end
 
 cookbook 'openstackclient', github: 'cloudbau/cookbook-openstackclient'
 cookbook 'statsd', github: 'att-cloud/cookbook-statsd'
+
+# Manually add requires from site-cookbooks/corista-openstack/{Berksfile, metadata.rb} here

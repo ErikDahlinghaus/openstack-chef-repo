@@ -1,0 +1,9 @@
+{
+  "id": "openstack",
+  "openstack": {
+    "encrypted_data": "hQeiYjP2nbWmRWGf0gnCDU4Zr4+jv7n7OthZEogi4DY=\n",
+    "iv": "+gUGgjwx5/qEU+gCXrEBFg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

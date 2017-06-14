@@ -1,0 +1,45 @@
+{
+  "name": "corista-openstack-controller-interfaces",
+  "description": "Setup up Corista Openstack Controller interfaces",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "corista-openstack": {
+      "interfaces": {
+        "br-ex": {
+          "type": "inet static",
+          "options": [
+            "address 192.168.200.10",
+            "netmask 255.255.255.0",
+            "gateway 192.168.200.1",
+            "dns-nameservers 192.168.75.1",
+            "bridge_ports enp9s0",
+            "bridge_stp off",
+            "bridge_fd 0",
+            "bridge_maxwait 0"
+          ]
+        },
+        "br-mgmt": {
+          "type": "inet static",
+          "options": [
+            "address 192.168.201.10",
+            "netmask 255.255.255.0",
+            "gateway 192.168.201.1",
+            "bridge_ports enp10s0",
+            "bridge_stp off",
+            "bridge_fd 0",
+            "bridge_maxwait 0"
+          ]
+        }
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[corista-openstack::disable_network_manager]",
+    "recipe[corista-openstack::setup_interfaces]"
+  ],
+  "env_run_lists": {
+  }
+}

@@ -1,3 +1,6 @@
+# COOKBOOK TO BE REMOVED
+This cookbook is to be removed by Corista, it is simply here for reference for now.
+
 # provisioning
 
 This cookbook is used for serving chef-provisioning recipes for provisioning

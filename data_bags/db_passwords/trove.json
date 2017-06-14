@@ -1,0 +1,9 @@
+{
+  "id": "trove",
+  "trove": {
+    "encrypted_data": "e5QXk8Qx/13Y77AZiekiIw6HDxp4Llm3QapvFK1nRQc=\n",
+    "iv": "n6bZwRNkd/2CqXHMUdqwMA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}
