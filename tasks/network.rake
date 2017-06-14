@@ -25,7 +25,7 @@ unless defined? NETWORK_TESTS
 end
 
 # Tasks in the controller namespace install network components and perform smoke tests
-namespace :controller do
+namespace :network do
   NETWORK_ROLES.each do |name|
     # Creates a task to run chef-client on localhost to install the various components
     task_name = name.to_sym
