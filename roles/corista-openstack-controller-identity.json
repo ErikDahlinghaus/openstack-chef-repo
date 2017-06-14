@@ -19,6 +19,9 @@
       "bind_service": {
         "db": { "host": "0.0.0.0"},
         "mq": { "host": "0.0.0.0"},
+        "main": {
+          "identity": { "host": "0.0.0.0" }
+        },
         "admin": {
           "identity": { "host": "0.0.0.0" }
         },
@@ -32,11 +35,14 @@
       "endpoints": {
         "db": { "host": "192.168.201.10" },
         "mq": { "host": "192.168.201.10" },
+        "main": {
+          "identity": { "host": "192.168.200.10" }
+        },
         "admin": {
           "identity": { "host": "192.168.200.10" }
         },
         "internal": {
-          "identity": { "host": "192.168.200.10" }
+          "identity": { "host": "192.168.201.10" }
         },
         "public": {
           "identity": { "host": "192.168.200.10" }

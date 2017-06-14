@@ -1,3 +1,10 @@
+# monkey patch trim_block for block strings
+class String
+  def trim_block
+    gsub(/^\s+/, '')
+  end
+end
+
 module CoristaOpenStack
   # Common methods used in our rake tasks
   module RakeCommon
@@ -37,17 +44,14 @@ module CoristaOpenStack
     require 'mixlib/shellout'
     def shell_out!(cmd)
       command = Mixlib::ShellOut.new(cmd)
+      puts "# #{cmd}"
       command.run_command
-      puts <<-EOH.trim_block
-      #{cmd}
-
-      #{command.stdout.chomp}
-
-      #{command.stderr.chomp}
-
-      Program Exit: #{command.exitstatus}
-
-      EOH
+      output = ''
+      output << command.stdout unless command.stdout.chomp.empty?
+      output << command.stderr unless command.stderr.chomp.empty?
+      puts output
+      puts "\nProgram Exit Status: #{command.exitstatus}\n-----\n\n"
+      command.exitstatus
     end
   end
 end
