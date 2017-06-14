@@ -22,5 +22,10 @@ This whole project depends on a fresh install of Ubuntu 16 (server or desktop) a
 ```
 chef exec rake vendor_cookbooks
 chef exec rake prepare_host
-chef exec rake controller:all
+chef exec rake controller:interfaces
+chef exec rake controller:common
+chef exec rake controller:identity
+chef exec rake controller:identity_test
+chef exec rake controller:image
+chef exec rake controller:image_test
 ```

@@ -1,0 +1,111 @@
+{
+  "name": "corista-openstack-controller",
+  "description": "Attributes for controller node",
+  "cookbook_versions": {
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "apache": {
+      "listen": []
+    },
+    "apt": {
+      "compile_time_update" : true
+    },
+    "corista-openstack": {
+      "interfaces": {
+        "br-ex": {
+          "type": "inet static",
+          "options": [
+            "address 192.168.200.10",
+            "netmask 255.255.255.0",
+            "gateway 192.168.200.1",
+            "dns-nameservers 192.168.75.1",
+            "bridge_ports enp9s0",
+            "bridge_stp off",
+            "bridge_fd 0",
+            "bridge_maxwait 0"
+          ]
+        },
+        "br-mgmt": {
+          "type": "inet static",
+          "options": [
+            "address 192.168.201.10",
+            "netmask 255.255.255.0",
+            "gateway 192.168.201.1",
+            "bridge_ports enp10s0",
+            "bridge_stp off",
+            "bridge_fd 0",
+            "bridge_maxwait 0"
+          ]
+        }
+      }
+    }
+  },
+  "override_attributes": {
+    "openstack": {
+      "region": "Somerville",
+      "apt": {
+        "update_apt_cache": true
+      },
+      "sysctl": {
+        "net.ipv4.ip_forward": 1
+      },
+      "secret": {
+        "key_path": "/opt/corista/openstack-chef-repo/.chef/encrypted_data_bag_secret"
+      },
+      "image": {
+        "api": {
+          "default_store": "file"
+        },
+        "upload_images": [
+          "cirros"
+        ]
+      },
+      "bind_service": {
+        "db": { "host": "0.0.0.0" },
+        "mq": { "host": "0.0.0.0" },
+        "main": {
+          "identity": { "host": "0.0.0.0" },
+          "image_api": { "host": "0.0.0.0" }
+        },
+        "admin": {
+          "identity": { "host": "0.0.0.0" },
+          "image_api": { "host": "0.0.0.0" }
+        },
+        "internal": {
+          "identity": { "host": "0.0.0.0" },
+          "image_api": { "host": "0.0.0.0" }
+        },
+        "public": {
+          "identity": { "host": "0.0.0.0" },
+          "image_api": { "host": "0.0.0.0" }
+        },
+        "all": {
+          "identity": { "host": "0.0.0.0" },
+          "image_api": { "host": "0.0.0.0" }
+        }
+      },
+      "endpoints": {
+        "db": { "host": "192.168.201.10" },
+        "mq": { "host": "192.168.201.10" },
+        "main": {
+          "identity": { "host": "192.168.200.10" },
+          "image_api": { "host": "192.168.200.10" }
+        },
+        "admin": {
+          "identity": { "host": "192.168.200.10" },
+          "image_api": { "host": "192.168.200.10" }
+        },
+        "internal": {
+          "identity": { "host": "192.168.201.10" },
+          "image_api": { "host": "192.168.201.10" }
+        },
+        "public": {
+          "identity": { "host": "192.168.200.10" },
+          "image_api": { "host": "192.168.200.10" }
+        }
+      }
+    }
+  }
+}

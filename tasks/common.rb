@@ -11,7 +11,7 @@ module CoristaOpenStack
 
     # Locate chef-repo TLD
     unless defined? CHEF_REPO_DIR
-      CHEF_REPO_DIR = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+      CHEF_REPO_DIR = File.expand_path(File.join(File.dirname(__FILE__), '..')).freeze
     end
 
     # default chef-client opts
@@ -50,8 +50,36 @@ module CoristaOpenStack
       output << command.stdout unless command.stdout.chomp.empty?
       output << command.stderr unless command.stderr.chomp.empty?
       puts output
-      puts "\nProgram Exit Status: #{command.exitstatus}\n-----\n\n"
+      puts "\nProgram Exit Status: #{command.exitstatus}\n"
       command.exitstatus
+    end
+
+    # Sources ENV from /root/openrc before running cmd
+    def run_with_openrc(cmd)
+      openrc = '/root/openrc'
+      raise StandardError, "#{openrc} does not exist or is not accessible" unless ::File.exist?(openrc)
+      env = ::File.readlines(openrc)
+                .select { |l| l =~ /export / }
+                .map { |l| l.gsub('export ','').chomp }
+                .map { |l| l.split('=') }.to_h
+      ENV.update(env)
+      shell_out!(cmd)
+    end
+
+    # Run a series of tests and print output
+    def run_smoke_tests(cmds)
+      puts "Running smoke tests...\n\n"
+      result = 0
+      cmds.each do |cmd|
+        result += run_with_openrc(cmd)
+        puts "-----\n\n"
+      end
+
+      if result == 0
+        puts 'SUCCESS!'
+      else
+        puts 'ERROR! One or more tests has a non-zero return status'
+      end
     end
   end
 end
