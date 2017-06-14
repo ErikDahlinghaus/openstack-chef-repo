@@ -15,7 +15,7 @@ end
 
 # a list of roles from roles/corista-openstack-network-*.rb that we want to execute for a network node
 unless defined? NETWORK_ROLES
-  NETWORK_ROLES = %w().freeze
+  NETWORK_ROLES = %w(interfaces common).freeze
 end
 
 # a list of commands that will be run when you call `rake network:<component>_test`

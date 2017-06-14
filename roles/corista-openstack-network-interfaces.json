@@ -1,0 +1,10 @@
+{
+  "name": "corista-openstack-network-interfaces",
+  "description": "set up corista openstack network: interfaces",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "run_list": [
+    "recipe[corista-openstack::disable_network_manager]",
+    "recipe[corista-openstack::setup_interfaces]"
+  ]
+}
