@@ -1,7 +1,12 @@
 # openstack-chef-repo
 Derived from: https://github.com/ErikDahlinghaus/openstack-chef-repo
 
+# Prereqs
+This whole project depends on a fresh install of Ubuntu 16 (server or desktop) and the default user set up as `corista`.
+
 # Getting started
+* Be `root` so you can break the system.
+  - `sudo -s`
 * Install ChefDK.
   - Make sure you get the older 1.2 version with chef-client 12 for now.
 * Git this repo to `/opt/corista/openstack-chef-repo`
