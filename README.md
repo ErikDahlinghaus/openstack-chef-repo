@@ -12,7 +12,7 @@ This whole project depends on a fresh install of Ubuntu 16 (server or desktop) a
 * Git this repo to `/opt/corista/openstack-chef-repo`
 * Go there `cd /opt/corista/openstack-chef-repo`
 * Vendor the cookbooks
-  - `chef exec rake vendor_cookbooks`
+  - `chef exec rake berks_vendor`
 * Prepare this host for openstack install (run on all hosts)
   - `chef exec rake prepare_host`
 * Check components for installation / test
@@ -20,7 +20,7 @@ This whole project depends on a fresh install of Ubuntu 16 (server or desktop) a
 
 ## Example controller node
 ```
-chef exec rake vendor_cookbooks
+chef exec rake berks_vendor
 chef exec rake prepare_host
 chef exec rake controller:interfaces
 chef exec rake controller:common
