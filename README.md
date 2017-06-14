@@ -29,3 +29,6 @@ chef exec rake controller:identity_test
 chef exec rake controller:image
 chef exec rake controller:image_test
 ```
+
+# Editing attributes
+See `environments/corista-openstack-controller.json`
