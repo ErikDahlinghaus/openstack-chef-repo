@@ -100,21 +100,21 @@
         "external_network_bridge_interface": "br-ex"
       },
       "bind_service": {
-        "network": "0.0.0.0",
+        "network": { "host": "0.0.0.0" },
         "main": {
-          "network": "0.0.0.0"
+          "network": { "host": "0.0.0.0" }
         },
         "admin": {
-          "network": "0.0.0.0"
+          "network": { "host": "0.0.0.0" }
         },
         "internal": {
-          "network": "0.0.0.0"
+          "network": { "host": "0.0.0.0" }
         },
         "public": {
-          "network": "0.0.0.0"
+          "network": { "host": "0.0.0.0" }
         },
         "all": {
-          "network": "0.0.0.0"
+          "network": { "host": "0.0.0.0" }
         }
       },
       "endpoints": {
