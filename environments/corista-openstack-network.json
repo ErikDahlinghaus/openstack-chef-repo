@@ -76,36 +76,70 @@
       "secret": {
         "key_path": "/opt/corista/openstack-chef-repo/.chef/encrypted_data_bag_secret"
       },
+      "network": {
+        "plugins": {
+          "ml2": {
+            "conf": {
+              "ml2_type_vxlan": {
+                "vni_ranges": "65537:69999",
+                "vxlan_group": "239.1.1.40"
+              }
+            }
+          }
+        },
+        "tun_network_bridge_interface": "br-overlay",
+        "conf": {
+          "DEFAULT": {
+            "service_plugins": "router"
+          },
+          "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" },
+          "ml2": { "tenant_network_types": "vxlan" }
+        }
+      },
+      "network_l3" : {
+        "external_network_bridge_interface": "br-ex"
+      },
       "bind_service": {
+        "network": "0.0.0.0",
         "main": {
+          "network": "0.0.0.0"
         },
         "admin": {
+          "network": "0.0.0.0"
         },
         "internal": {
+          "network": "0.0.0.0"
         },
         "public": {
+          "network": "0.0.0.0"
         },
         "all": {
+          "network": "0.0.0.0"
         }
       },
       "endpoints": {
         "db": { "host": "192.168.201.10" },
         "mq": { "host": "192.168.201.10" },
+        "network": { "host": "192.168.201.10" },
         "main": {
           "identity": { "host": "192.168.200.10" },
-          "image_api": { "host": "192.168.200.10" }
+          "image_api": { "host": "192.168.200.10" },
+          "network": { "host": "192.168.200.10" }
         },
         "admin": {
           "identity": { "host": "192.168.200.10" },
-          "image_api": { "host": "192.168.200.10" }
+          "image_api": { "host": "192.168.200.10" },
+          "network": { "host": "192.168.200.10" }
         },
         "internal": {
           "identity": { "host": "192.168.201.10" },
-          "image_api": { "host": "192.168.201.10" }
+          "image_api": { "host": "192.168.201.10" },
+          "network": { "host": "192.168.201.10" }
         },
         "public": {
           "identity": { "host": "192.168.200.10" },
-          "image_api": { "host": "192.168.200.10" }
+          "image_api": { "host": "192.168.200.10" },
+          "network": { "host": "192.168.200.10" }
         }
       }
     }

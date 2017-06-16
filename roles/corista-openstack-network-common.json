@@ -1,6 +1,6 @@
 {
-  "name": "corista-openstack-controller-common",
-  "description": "set up corista openstack controller: common",
+  "name": "corista-openstack-network-common",
+  "description": "set up corista openstack network: common",
   "json_class": "Chef::Role",
   "chef_type": "role",
   "run_list": [
