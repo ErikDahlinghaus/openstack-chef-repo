@@ -1,4 +1,5 @@
 package 'bridge-utils'
+package 'vlan'
 
 template '/etc/network/interfaces' do
   source 'etc_network_interfaces.erb'

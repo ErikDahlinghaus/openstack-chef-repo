@@ -20,11 +20,17 @@
             "address 192.168.200.30",
             "netmask 255.255.255.0",
             "gateway 192.168.200.1",
-            "dns-nameservers 192.168.75.1",
+            "dns-nameservers 8.8.8.8",
             "bridge_ports eno1",
             "bridge_stp off",
             "bridge_fd 0",
             "bridge_maxwait 0"
+          ]
+        },
+        "eno2.201": {
+          "type": "inet manual",
+          "options": [
+            "vlan-raw-device eno2"
           ]
         },
         "br-mgmt": {
@@ -32,20 +38,24 @@
           "options": [
             "address 192.168.201.30",
             "netmask 255.255.255.0",
-            "gateway 192.168.201.1",
-            "bridge_ports eno2",
+            "bridge_ports eno2.201",
             "bridge_stp off",
             "bridge_fd 0",
             "bridge_maxwait 0"
           ]
         },
-        "br-net": {
+        "eno3.202": {
+          "type": "inet manual",
+          "options": [
+            "vlan-raw-device eno3"
+          ]
+        },
+        "br-overlay": {
           "type": "inet static",
           "options": [
             "address 192.168.202.30",
             "netmask 255.255.255.0",
-            "gateway 192.168.202.1",
-            "bridge_ports eno3",
+            "bridge_ports eno3.202",
             "bridge_stp off",
             "bridge_fd 0",
             "bridge_maxwait 0"

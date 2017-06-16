@@ -27,13 +27,18 @@
             "bridge_maxwait 0"
           ]
         },
+        "enp10s0.201": {
+          "type": "inet manual",
+          "options": [
+            "vlan-raw-device enp10s0"
+          ]
+        },
         "br-mgmt": {
           "type": "inet static",
           "options": [
             "address 192.168.201.10",
             "netmask 255.255.255.0",
-            "gateway 192.168.201.1",
-            "bridge_ports enp10s0",
+            "bridge_ports enp10s0.201",
             "bridge_stp off",
             "bridge_fd 0",
             "bridge_maxwait 0"
