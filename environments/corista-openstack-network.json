@@ -14,26 +14,28 @@
     },
     "corista-openstack": {
       "interfaces": {
-        "enp3s0.201": {
-          "type": "inet manual",
+        "enp4s0": {
+          "type": "inet static",
           "options": [
-            "vlan-raw-device enp3s0"
+            "address 192.168.200.20",
+            "netmask 255.255.255.0",
+            "gateway 192.168.200.1",
+            "dns-nameservers 8.8.8.8"
           ]
         },
-        "br-mgmt": {
+        "enp3s0.201": {
           "type": "inet static",
           "options": [
             "address 192.168.201.20",
             "netmask 255.255.255.0",
-            "bridge_ports enp3s0.201",
-            "bridge_stp off",
-            "bridge_fd 0",
-            "bridge_maxwait 0"
+            "vlan-raw-device enp3s0"
           ]
         },
         "enp5s0.202": {
-          "type": "inet manual",
+          "type": "inet static",
           "options": [
+            "address 192.168.202.20",
+            "netmask 255.255.255.0",
             "vlan-raw-device enp5s0"
           ]
         }
