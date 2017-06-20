@@ -212,6 +212,9 @@
       },
       "compute": {
         "conf": {
+          "api": {
+            "auth_strategy": "keystone"
+          },
           "libvirt": {
             "virt_type": "qemu"
           },
