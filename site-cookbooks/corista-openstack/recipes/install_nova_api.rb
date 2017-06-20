@@ -17,7 +17,7 @@ end
 
 template '/etc/nova/api-paste.ini' do
   source 'api-paste.ini.erb'
-  cookbook 'cookbook-openstack-compute'
+  cookbook 'openstack-compute'
   owner node['openstack']['compute']['user']
   group node['openstack']['compute']['group']
   mode 00644
