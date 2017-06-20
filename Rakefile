@@ -21,3 +21,8 @@ desc "Prepares host with basic functionality. Runs role corista-openstack-defaul
 task :prepare_host do
   run_role('corista-openstack-default')
 end
+
+desc "run recipe"
+task :run_recipe, [:recipe] do |t, args|
+  run_recipe(args[:recipe])
+end
