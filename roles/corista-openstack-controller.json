@@ -31,7 +31,7 @@
           ]
         },
         "br-vlan": {
-          "type": "inet static",
+          "type": "inet manual",
           "options": [
             "bridge_ports enp3s0",
             "bridge_stp off",
