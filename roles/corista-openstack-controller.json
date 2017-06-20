@@ -58,10 +58,7 @@
     "recipe[corista-openstack::install_memcached]",
     "recipe[openstack-identity::server-apache]",
     "recipe[openstack-identity::registration]",
-    "recipe[openstack-identity::openrc]",
-    "recipe[openstack-image::api]",
-    "recipe[openstack-image::registry]",
-    "recipe[openstack-image::identity_registration]"
+    "recipe[openstack-identity::openrc]"
   ],
   "env_run_lists": {
   }

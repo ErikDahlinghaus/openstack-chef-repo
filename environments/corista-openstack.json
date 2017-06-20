@@ -33,6 +33,7 @@
         "mq": { "host": "0.0.0.0" },
         "main": {
           "network": { "host": "0.0.0.0" },
+          "identity": { "host": "0.0.0.0" },
           "image_api": { "host": "0.0.0.0" },
           "image_registry": { "host": "0.0.0.0" },
           "block-storage": { "host": "0.0.0.0" },
@@ -45,6 +46,7 @@
         },
         "admin": {
           "network": { "host": "0.0.0.0" },
+          "identity": { "host": "0.0.0.0" },
           "image_api": { "host": "0.0.0.0" },
           "image_registry": { "host": "0.0.0.0" },
           "block-storage": { "host": "0.0.0.0" },
@@ -57,6 +59,7 @@
         },
         "internal": {
           "network": { "host": "0.0.0.0" },
+          "identity": { "host": "0.0.0.0" },
           "image_api": { "host": "0.0.0.0" },
           "image_registry": { "host": "0.0.0.0" },
           "block-storage": { "host": "0.0.0.0" },
@@ -69,6 +72,7 @@
         },
         "public": {
           "network": { "host": "0.0.0.0" },
+          "identity": { "host": "0.0.0.0" },
           "image_api": { "host": "0.0.0.0" },
           "image_registry": { "host": "0.0.0.0" },
           "block-storage": { "host": "0.0.0.0" },
@@ -81,6 +85,7 @@
         },
         "all": {
           "network": { "host": "0.0.0.0" },
+          "identity": { "host": "0.0.0.0" },
           "image_api": { "host": "0.0.0.0" },
           "image_registry": { "host": "0.0.0.0" },
           "block-storage": { "host": "0.0.0.0" },
