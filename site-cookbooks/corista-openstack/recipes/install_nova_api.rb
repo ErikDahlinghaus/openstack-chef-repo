@@ -31,3 +31,30 @@ execute 'nova-manage api_db sync' do
   command 'nova-manage api_db sync'
   action :run
 end
+
+# register cell0 database
+execute 'nova-manage cell_v2 map_cell0' do
+  timeout node['openstack']['compute']['dbsync_timeout']
+  user nova_user
+  group nova_group
+  command 'nova-manage cell_v2 map_cell0'
+  action :run
+end
+
+# create cell1
+execute 'nova-manage cell_v2 create_cell --name=cell1 --verbose' do
+  timeout node['openstack']['compute']['dbsync_timeout']
+  user nova_user
+  group nova_group
+  command 'nova-manage cell_v2 create_cell --name=cell1 --verbose'
+  action :run
+end
+
+# populate the nova database
+execute 'nova-manage db sync' do
+  timeout node['openstack']['compute']['dbsync_timeout']
+  user nova_user
+  group nova_group
+  command 'nova-manage db sync'
+  action :run
+end
