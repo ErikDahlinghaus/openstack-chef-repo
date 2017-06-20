@@ -14,6 +14,9 @@
     }
   },
   "override_attributes": {
+    "corista-openstack": {
+      "controller_host": "192.168.200.10"
+    },
     "openstack": {
       "region": "Somerville",
       "apt": {
@@ -145,6 +148,9 @@
           "orchestration-api-cloudwatch": { "host": "192.168.200.10" }
         }
       },
+      "memcached_servers": [
+        "192.168.200.10:11211"
+      ],
       "dashboard": {
         "server_hostname": "controller"
       },
