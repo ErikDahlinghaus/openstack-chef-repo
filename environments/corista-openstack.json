@@ -217,9 +217,7 @@
       },
       "compute": {
         "platform": {
-          "compute_api_packages": [
-            "nova-api"
-          ],
+          "compute_api_packages": [ "nova-api" ],
           "compute_api_service": "nova-api"
         },
         "conf": {
@@ -276,6 +274,9 @@
             "service_metadata_proxy": true
           },
           "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" }
+        },
+        "platform": {
+          "neutron_linuxbridge_agent_packages": [ "neutron_linuxbridge_agent" ]
         }
       },
       "network_dhcp": {
