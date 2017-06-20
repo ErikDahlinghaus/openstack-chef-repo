@@ -14,7 +14,7 @@ end
 
 desc "Vendor your cookbooks"
 task :berks_vendor do
-  run_chef_command('berks vendor cookbooks')
+  chef_exec('berks vendor cookbooks')
 end
 
 desc "Prepares host with basic functionality. Runs role corista-openstack-default"
