@@ -29,7 +29,7 @@
         "key_path": "/opt/corista/openstack-chef-repo/.chef/encrypted_data_bag_secret"
       },
       "bind_service": {
-        "db": { "host": "192.168.200.10" },
+        "db": { "host": "0.0.0.0" },
         "mq": { "host": "192.168.200.10" },
         "dashboard_http": { "host": "192.168.200.10" },
         "dashboard_http": { "host": "192.168.200.10" },
