@@ -211,6 +211,12 @@
         ]
       },
       "compute": {
+        "platform": {
+          "compute_api_packages": [
+            "nova-api"
+          ],
+          "compute_api_service": "nova-api"
+        },
         "conf": {
           "api": {
             "auth_strategy": "keystone"
