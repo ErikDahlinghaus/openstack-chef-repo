@@ -201,6 +201,14 @@
           "cirros"
         ]
       },
+      "compute": {
+        "conf": {
+          "libvirt": {
+            "virt_type": "qemu"
+          },
+          "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" }
+        }
+      },
       "dashboard": {
         "server_hostname": "controller"
       },
@@ -220,14 +228,6 @@
           },
           "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" },
           "ml2": { "tenant_network_types": "flat,vlan" }
-        }
-      },
-      "compute": {
-        "conf": {
-          "libvirt": {
-            "virt_type": "qemu"
-          },
-          "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" }
         }
       }
     }
