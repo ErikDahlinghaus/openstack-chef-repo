@@ -70,6 +70,7 @@
     "recipe[openstack-compute::scheduler]",
     "recipe[openstack-compute::vncproxy]",
     "recipe[openstack-compute::placement_api]",
+    "recipe[corista-openstack::install_nova_api]",
     "recipe[openstack-compute::identity_registration]"
   ],
   "env_run_lists": {
