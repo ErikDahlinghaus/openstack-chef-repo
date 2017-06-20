@@ -4,15 +4,17 @@
 auto lo
 iface lo inet loopback
 
-<%
-@interfaces = node['corista-openstack']['interfaces']
-@interfaces.keys.each do |iface|
-%>
-# <%= iface %>
+<% @interfaces.keys.each do |iface| %>
+## <%= iface %> ##
+<% if @interfaces[iface]['desc'] %>
+# <%= @interfaces[iface]['desc'] %>
+<% end %>
 auto <%= iface %>
 iface <%= iface %> <%= @interfaces[iface]['type'] %>
+<% if @interfaces[iface]['options'] %>
 <% @interfaces[iface]['options'].each do |opt| %>
   <%= opt %>
 <% end %>
 
+<% end %>
 <% end %>

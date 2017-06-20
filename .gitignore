@@ -8,6 +8,6 @@ Berksfile.lock
 cookbooks/
 Gemfile.lock
 vms/
-.chef/validator.pem
+nodes/
 .chef/local-mode-cache/
 .project

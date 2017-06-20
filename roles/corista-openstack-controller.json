@@ -1,0 +1,53 @@
+{
+  "name": "corista-openstack-controller",
+  "description": "Configure corista-openstack controller node",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "corista-openstack": {
+      "interfaces": {
+        "enp4s0": {
+          "desc": "mgmt nic",
+          "type": "inet manual"
+        },
+        "enp3s0": {
+          "desc": "vlan nic",
+          "type": "inet manual"
+        },
+        "enp5s0": {
+          "desc": "unused nic",
+          "type": "inet manual"
+        },
+        "br-mgmt": {
+          "type": "inet static",
+          "options": [
+            "address 192.168.200.10",
+            "netmask 255.255.255.0",
+            "gateway 192.168.200.1",
+            "dns-nameservers 192.168.200.1",
+            "bridge_ports enp4s0",
+            "bridge_stp off",
+            "bridge_fd 0",
+            "bridge_maxwait 0"
+          ]
+        },
+        "br-vlan": {
+          "type": "inet static",
+          "options": [
+            "bridge_ports enp3s0",
+            "bridge_stp off",
+            "bridge_fd 0",
+            "bridge_maxwait 0"
+          ]
+        }
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[corista-openstack::setup_interfaces]"
+  ],
+  "env_run_lists": {
+  }
+}
