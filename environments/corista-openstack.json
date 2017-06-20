@@ -275,7 +275,7 @@
           "neutron": {
             "service_metadata_proxy": true
           },
-          "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" },
+          "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" }
         }
       },
       "network_dhcp": {
