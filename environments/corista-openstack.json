@@ -277,7 +277,7 @@
         },
         "platform": {
           "neutron_linuxbridge_agent_packages": [ "neutron-linuxbridge-agent" ],
-          "neutron_linuxbridge_agent": "neutron-linuxbridge-agent"
+          "neutron_linuxbridge_agent_service": "neutron-linuxbridge-agent"
         }
       },
       "network_dhcp": {
