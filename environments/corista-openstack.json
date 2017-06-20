@@ -138,6 +138,7 @@
           "compute-xvpvnc": { "host": "192.168.200.10" },
           "compute-vnc-proxy": { "host": "192.168.200.10" },
           "compute-serial-proxy": { "host": "192.168.200.10" },
+          "placement-api": { "host": "192.168.200.10" },
           "orchestration-api": { "host": "192.168.200.10" },
           "orchestration-api-cfn": { "host": "192.168.200.10" },
           "orchestration-api-cloudwatch": { "host": "192.168.200.10" }
@@ -155,6 +156,7 @@
           "compute-xvpvnc": { "host": "192.168.200.10" },
           "compute-vnc-proxy": { "host": "192.168.200.10" },
           "compute-serial-proxy": { "host": "192.168.200.10" },
+          "placement-api": { "host": "192.168.200.10" },
           "orchestration-api": { "host": "192.168.200.10" },
           "orchestration-api-cfn": { "host": "192.168.200.10" },
           "orchestration-api-cloudwatch": { "host": "192.168.200.10" }
@@ -172,6 +174,7 @@
           "compute-xvpvnc": { "host": "192.168.200.10" },
           "compute-vnc-proxy": { "host": "192.168.200.10" },
           "compute-serial-proxy": { "host": "192.168.200.10" },
+          "placement-api": { "host": "192.168.200.10" },
           "orchestration-api": { "host": "192.168.200.10" },
           "orchestration-api-cfn": { "host": "192.168.200.10" },
           "orchestration-api-cloudwatch": { "host": "192.168.200.10" }
@@ -189,6 +192,7 @@
           "compute-xvpvnc": { "host": "192.168.200.10" },
           "compute-vnc-proxy": { "host": "192.168.200.10" },
           "compute-serial-proxy": { "host": "192.168.200.10" },
+          "placement-api": { "host": "192.168.200.10" },
           "orchestration-api": { "host": "192.168.200.10" },
           "orchestration-api-cfn": { "host": "192.168.200.10" },
           "orchestration-api-cloudwatch": { "host": "192.168.200.10" }
