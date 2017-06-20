@@ -90,7 +90,7 @@
         }
       },
       "endpoints": {
-        "db": { "host": "192.168.200.10" },
+        "db": { "host": "192.168.200.10", "host_for_db_root_user": "localhost" },
         "mq": { "host": "192.168.200.10" },
         "main": {
           "identity": { "host": "192.168.200.10" },
