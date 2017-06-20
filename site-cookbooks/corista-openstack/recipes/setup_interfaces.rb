@@ -8,8 +8,9 @@ template '/etc/network/interfaces' do
   group 'root'
   mode '0644'
   variables interfaces: node['corista-openstack']['interfaces']
+  notifies :restart, 'service[networking]', :immediately
 end
 
 service 'networking' do
-  action :restart
+  action :nothing
 end

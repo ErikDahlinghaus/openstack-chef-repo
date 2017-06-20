@@ -1,30 +1,30 @@
 {
-  "name": "corista-openstack-controller",
-  "description": "Configure corista-openstack controller node",
+  "name": "corista-openstack-compute",
+  "description": "Configure corista-openstack compute node",
   "json_class": "Chef::Role",
   "default_attributes": {
     "corista-openstack": {
       "interfaces": {
-        "enp4s0": {
+        "eno1": {
           "desc": "mgmt nic",
           "type": "inet manual"
         },
-        "enp3s0": {
+        "eno2": {
           "desc": "vlan nic",
           "type": "inet manual"
         },
-        "enp5s0": {
+        "eno3": {
           "desc": "unused nic",
           "type": "inet manual"
         },
         "br-mgmt": {
           "type": "inet static",
           "options": [
-            "address 192.168.200.10",
+            "address 192.168.200.20",
             "netmask 255.255.255.0",
             "gateway 192.168.200.1",
             "dns-nameservers 192.168.200.1",
-            "bridge_ports enp4s0",
+            "bridge_ports eno1",
             "bridge_stp off",
             "bridge_fd 0",
             "bridge_maxwait 0"
@@ -33,7 +33,7 @@
         "br-vlan": {
           "type": "inet manual",
           "options": [
-            "bridge_ports enp3s0",
+            "bridge_ports eno2",
             "bridge_stp off",
             "bridge_fd 0",
             "bridge_maxwait 0"
@@ -48,12 +48,6 @@
   "run_list": [
     "recipe[corista-openstack::setup_interfaces]",
     "recipe[openstack-common]",
-    "recipe[openstack-common::logging]",
-    "recipe[openstack-common::sysctl]",
-    "recipe[openstack-common::client]",
-    "recipe[corista-openstack::setup_db]",
-    "recipe[openstack-ops-database::openstack-db]",
-    "recipe[openstack-ops-messaging::rabbitmq-server]"
   ],
   "env_run_lists": {
   }
