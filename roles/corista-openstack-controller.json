@@ -55,6 +55,7 @@
     "recipe[openstack-ops-database::server]",
     "recipe[openstack-ops-database::openstack-db]",
     "recipe[openstack-ops-messaging::rabbitmq-server]",
+    "recipe[corista-openstack::install_memcached]",
     "recipe[openstack-identity::server-apache]",
     "recipe[openstack-identity::registration]",
     "recipe[openstack-identity::openrc]",
