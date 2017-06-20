@@ -77,7 +77,8 @@
     "recipe[openstack-network::metadata_agent]",
     "recipe[openstack-network::server]",
     "recipe[openstack-network::identity_registration]",
-    "recipe[openstack-dashboard::horizon]"
+    "recipe[openstack-dashboard::horizon]",
+    "recipe[corista-openstack::compile_dashboard_assets]"
   ],
   "env_run_lists": {
   }

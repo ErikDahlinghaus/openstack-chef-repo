@@ -15,6 +15,14 @@ platform_options['compute_api_packages'].each do |pkg|
   end
 end
 
+template '/etc/nova/api-paste.ini' do
+  source 'api-paste.ini.erb'
+  cookbook 'cookbook-openstack-compute'
+  owner node['openstack']['compute']['user']
+  group node['openstack']['compute']['group']
+  mode 00644
+end
+
 service 'nova-api' do
   service_name platform_options['compute_api_service']
   supports status: true, restart: true
