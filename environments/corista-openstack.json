@@ -14,9 +14,6 @@
     }
   },
   "override_attributes": {
-    "rabbitmq": {
-      "address": "192.168.200.10"
-    },
     "corista-openstack": {
       "controller_host": "192.168.200.10"
     },
