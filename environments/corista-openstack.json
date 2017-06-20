@@ -239,18 +239,57 @@
         "user": "admin"
       },
       "network":{
+        "interface_driver": "neutron.agent.linux.interface.BridgeInterfaceDriver",
         "plugins": {
           "ml2": {
             "conf": {
+              "ml2": {
+                "type_drivers": "flat,vlan",
+                "tenant_network_types": "",
+                "extension_drivers": "port_security"
+              },
+              "ml2_type_flat": {
+                "flat_networks": "provider"
+              },
+              "securitygroup": {
+                "enable_ipset": true
+              }
+            }
+          },
+          "linuxbridge": {
+            "conf": {
+              "linux_bridge": {
+                "physical_interface_mappings": "provider:br-vlan"
+              },
+              "vxlan": {
+                "enable_vxlan": false
+              },
+              "securitygroup": {
+                "enable_security_group": true,
+                "firewall_driver": "neutron.agent.linux.iptables_firewall.IptablesFirewallDriver"
+              }
             }
           }
         },
         "conf": {
-          "DEFAULT": {
-            "service_plugins": "router"
+          "neutron": {
+            "service_metadata_proxy": true
           },
           "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" },
-          "ml2": { "tenant_network_types": "flat,vlan" }
+        }
+      },
+      "network_dhcp": {
+        "conf": {
+          "DEFAULT": {
+            "enable_isolated_metadata": true
+          }
+        }
+      },
+      "network_metadata": {
+        "conf": {
+          "DEFAULT": {
+            "nova_metadata_ip": "192.168.200.10"
+          }
         }
       }
     }
