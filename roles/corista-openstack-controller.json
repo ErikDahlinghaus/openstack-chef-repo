@@ -46,12 +46,13 @@
   },
   "chef_type": "role",
   "run_list": [
+    "recipe[build-essential]",
     "recipe[corista-openstack::setup_interfaces]",
     "recipe[openstack-common]",
     "recipe[openstack-common::logging]",
     "recipe[openstack-common::sysctl]",
     "recipe[openstack-common::client]",
-    "recipe[corista-openstack::setup_db]",
+    "recipe[openstack-ops-database::server]",
     "recipe[openstack-ops-database::openstack-db]",
     "recipe[openstack-ops-messaging::rabbitmq-server]"
   ],
