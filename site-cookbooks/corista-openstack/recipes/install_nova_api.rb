@@ -42,12 +42,13 @@ execute 'nova-manage cell_v2 map_cell0' do
 end
 
 # create cell1
-execute 'nova-manage cell_v2 create_cell --name=cell1 --verbose' do
+execute 'nova-manage cell_v2 create_cell --name=cell1' do
   timeout node['openstack']['compute']['dbsync_timeout']
   user nova_user
   group nova_group
-  command 'nova-manage cell_v2 create_cell --name=cell1 --verbose'
+  command 'nova-manage cell_v2 create_cell --name=cell1'
   action :run
+  not_if "nova-manage cell_v2 list_cells | grep cell1", user: nova_user, group: nova_group
 end
 
 # populate the nova database

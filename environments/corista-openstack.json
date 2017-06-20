@@ -210,6 +210,11 @@
           "cirros"
         ]
       },
+      "db": {
+        "compute_cell0": {
+          "username": "nova"
+        }
+      },
       "compute": {
         "platform": {
           "compute_api_packages": [
