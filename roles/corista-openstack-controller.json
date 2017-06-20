@@ -69,7 +69,7 @@
     "recipe[openstack-compute::api-metadata]",
     "recipe[openstack-compute::scheduler]",
     "recipe[openstack-compute::vncproxy]",
-    "recipe[openstack-compute::placement_api]"
+    "recipe[openstack-compute::placement_api]",
     "recipe[openstack-compute::identity_registration]"
   ],
   "env_run_lists": {
