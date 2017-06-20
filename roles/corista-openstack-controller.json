@@ -71,11 +71,11 @@
     "recipe[openstack-compute::placement_api]",
     "recipe[openstack-compute::identity_registration]",
     "recipe[openstack-network]",
-    "recipe[openstack-network::server]",
     "recipe[openstack-network::ml2_core_plugin]",
     "recipe[openstack-network::ml2_linuxbridge]",
     "recipe[openstack-network::dhcp_agent]",
     "recipe[openstack-network::metadata_agent]",
+    "recipe[openstack-network::server]",
     "recipe[openstack-network::identity_registration]"
   ],
   "env_run_lists": {
