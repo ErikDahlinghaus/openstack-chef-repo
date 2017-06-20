@@ -276,7 +276,8 @@
           "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" }
         },
         "platform": {
-          "neutron_linuxbridge_agent_packages": [ "neutron-linuxbridge-agent" ]
+          "neutron_linuxbridge_agent_packages": [ "neutron-linuxbridge-agent" ],
+          "neutron_linuxbridge_agent": "neutron-linuxbridge-agent"
         }
       },
       "network_dhcp": {
