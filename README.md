@@ -17,7 +17,7 @@ This whole project depends on a fresh install of Ubuntu 16 (server or desktop) a
   - `./install_chefdk.sh`
 * Vendor the cookbooks
   - `chef exec rake berks_vendor`
-* Prepare this host for openstack install (run on all hosts)
-  - `chef exec rake prepare_host`
-* Check components for installation / test
+* Check which tasks are available
   - `chef exec rake -T`
+* Install components for a controller node
+  - `chef exec rake controller:install`

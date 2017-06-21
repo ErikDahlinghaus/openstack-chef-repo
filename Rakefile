@@ -17,12 +17,12 @@ task :berks_vendor do
   chef_exec('berks vendor cookbooks')
 end
 
-desc "Prepares host with basic functionality. Runs role corista-openstack-default"
-task :prepare_host do
-  run_role('corista-openstack-default')
-end
-
 desc "run recipe"
 task :run_recipe, [:recipe] do |t, args|
   run_recipe(args[:recipe])
+end
+
+desc "run role"
+task :run_role, [:role] do |t, args|
+  run_role(args[:role])
 end
