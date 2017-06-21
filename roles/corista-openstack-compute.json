@@ -48,7 +48,12 @@
   "run_list": [
     "recipe[build-essential]",
     "recipe[corista-openstack::corista_user]",
-    "recipe[corista-openstack::setup_interfaces]"
+    "recipe[corista-openstack::setup_interfaces]",
+    "recipe[openstack-common]",
+    "recipe[openstack-network]",
+    "recipe[openstack-network::ml2_core_plugin]",
+    "recipe[openstack-network::ml2_linuxbridge]",
+    "recipe[openstack-network::plugin_config]"
   ],
   "env_run_lists": {
   }
