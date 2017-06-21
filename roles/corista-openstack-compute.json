@@ -20,7 +20,7 @@
         "br-mgmt": {
           "type": "inet static",
           "options": [
-            "address 192.168.200.20",
+            "address 192.168.200.30",
             "netmask 255.255.255.0",
             "gateway 192.168.200.1",
             "dns-nameservers 192.168.200.1",
@@ -46,8 +46,9 @@
   },
   "chef_type": "role",
   "run_list": [
-    "recipe[corista-openstack::setup_interfaces]",
-    "recipe[openstack-common]",
+    "recipe[build-essential]",
+    "recipe[corista-openstack::corista_user]",
+    "recipe[corista-openstack::setup_interfaces]"
   ],
   "env_run_lists": {
   }
