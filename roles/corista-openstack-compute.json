@@ -43,6 +43,18 @@
     }
   },
   "override_attributes": {
+    "openstack": {
+      "compute": {
+        "conf": {
+          "DEFAULT": {
+            "my_ip": "192.168.200.30"
+          },
+          "vnc": {
+            "vncserver_listen": "0.0.0.0"
+          }
+        }
+      }
+    }
   },
   "chef_type": "role",
   "run_list": [
