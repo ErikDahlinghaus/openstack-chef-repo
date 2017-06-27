@@ -291,6 +291,7 @@
       "network_dhcp": {
         "conf": {
           "DEFAULT": {
+            "interface_driver": "linuxbridge",
             "enable_isolated_metadata": true
           }
         }
