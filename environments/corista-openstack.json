@@ -232,10 +232,7 @@
       },
       "dashboard": {
         "server_hostname": "controller",
-        "static_path": "/var/lib/openstack-dashboard/static",
-        "neutron": {
-          "enable_router": false
-        }
+        "static_path": "/var/lib/openstack-dashboard/static"
       },
       "mq": {
         "user": "admin"
