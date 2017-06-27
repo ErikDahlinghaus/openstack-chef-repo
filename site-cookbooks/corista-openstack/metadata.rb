@@ -7,3 +7,4 @@ version '0.1.0'
 
 depends 'openstack-common'
 depends 'openstack-compute'
+depends 'openstack-dashboard'
