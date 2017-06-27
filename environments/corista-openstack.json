@@ -255,6 +255,8 @@
             }
           },
           "linuxbridge": {
+            "path": "/etc/neutron/plugins/ml2",
+            "filename": "linuxbridge_agent.ini",
             "conf": {
               "linux_bridge": {
                 "physical_interface_mappings": "provider:br-vlan"
