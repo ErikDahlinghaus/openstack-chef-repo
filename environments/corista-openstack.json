@@ -249,8 +249,14 @@
               "ml2_type_flat": {
                 "flat_networks": "provider"
               },
+              "ml2_type_vlan": {
+                "network_vlan_ranges": "provider"
+              },
               "securitygroup": {
                 "enable_ipset": true
+              },
+              "linux_bridge": {
+                "physical_interface_mappings": "provider:br-vlan"
               }
             }
           },
