@@ -221,13 +221,18 @@
           "compute_api_service": "nova-api"
         },
         "conf": {
+          "DEFAULT": {
+            "log_dir": "",
+          },
           "api": {
             "auth_strategy": "keystone"
           },
           "libvirt": {
             "virt_type": "qemu"
           },
-          "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" }
+          "vnc": {
+            "enabled": true
+          }
         }
       },
       "dashboard": {
