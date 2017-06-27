@@ -227,7 +227,7 @@ OPENSTACK_CINDER_FEATURES = {
 OPENSTACK_NEUTRON_NETWORK = {
     <%
     if node['openstack']['dashboard']['neutron']
-      node['openstack']['dashboard']['neutron'].each do |name|
+      node['openstack']['dashboard']['neutron'].each_key do |name|
     %>
     '<%= name %>': <%= node['openstack']['dashboard']['neutron'][name].to_s.capitalize %>,
     <%
