@@ -1,5 +1,4 @@
 include_recipe 'openstack-dashboard::horizon'
-include_recipe 'openstack-dashboard::compile_dashboard_assets'
 
 require 'pp'
 
@@ -20,4 +19,4 @@ puts "\n\n\n\n"
 pp "#{local_settings_template.variables}"
 puts "\n\n\n\n"
 
-raise StandardError, "Stopping run"
+include_recipe 'corista-openstack::compile_dashboard_assets'
