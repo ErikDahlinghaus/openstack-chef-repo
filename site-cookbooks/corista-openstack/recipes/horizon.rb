@@ -6,7 +6,7 @@ local_settings_path = node['openstack']['dashboard']['local_settings_path']
 local_settings_template = nil
 begin
   local_settings_template = resources(template: local_settings_path)
-  r.cookbook('corista-openstack')
+  local_settings_template.cookbook('corista-openstack')
 rescue Chef::Exceptions::ResourceNotFound => e
   puts "\n\n\n\n"
   puts "RESOURCE NOT FOUND template[#{local_settings_path}]"
