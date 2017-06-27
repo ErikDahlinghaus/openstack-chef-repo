@@ -53,7 +53,8 @@
     "recipe[openstack-network]",
     "recipe[openstack-network::ml2_core_plugin]",
     "recipe[openstack-network::ml2_linuxbridge]",
-    "recipe[openstack-network::plugin_config]"
+    "recipe[openstack-network::plugin_config]",
+    "recipe[openstack-compute::compute]"
   ],
   "env_run_lists": {
   }
