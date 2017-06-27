@@ -1,5 +1,5 @@
-include_recipe 'recipe[openstack-dashboard::horizon]'
-include_recipe 'recipe[openstack-dashboard::compile_dashboard_assets]'
+include_recipe 'openstack-dashboard::horizon'
+include_recipe 'openstack-dashboard::compile_dashboard_assets'
 
 require 'pp'
 
