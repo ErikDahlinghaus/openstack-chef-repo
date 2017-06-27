@@ -231,7 +231,11 @@
         }
       },
       "dashboard": {
-        "server_hostname": "controller"
+        "server_hostname": "controller",
+        "static_path": "/var/lib/openstack-dashboard/static",
+        "neutron": {
+          "enable_router": false
+        }
       },
       "mq": {
         "user": "admin"
@@ -280,8 +284,7 @@
         "conf": {
           "neutron": {
             "service_metadata_proxy": true
-          },
-          "oslo_messaging_rabbit": { "rabbit_host": "192.168.200.10" }
+          }
         },
         "platform": {
           "neutron_linuxbridge_agent_packages": [ "neutron-linuxbridge-agent" ],
