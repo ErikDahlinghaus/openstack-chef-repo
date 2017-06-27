@@ -241,7 +241,7 @@
           "enable_ha_router": false,
           "enable_lb": false,
           "enable_firewall": false,
-          "enable_vpn": false,
+          "enable_vpn": false
         }
       },
       "mq": {
