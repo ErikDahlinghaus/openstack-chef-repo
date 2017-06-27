@@ -1,6 +1,6 @@
 {
-  "name": "corista-openstack-compute",
-  "description": "Configure corista-openstack compute node",
+  "name": "corista-openstack-compute1",
+  "description": "Configure corista-openstack compute1 node",
   "json_class": "Chef::Role",
   "default_attributes": {
     "corista-openstack": {

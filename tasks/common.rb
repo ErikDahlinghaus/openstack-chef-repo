@@ -24,6 +24,12 @@ module CoristaOpenStack
       ].join(' ').freeze
     end
 
+    # List available role names
+    def available_roles
+      roles_glob = File.join(CHEF_REPO_DIR, 'roles/*.json')
+      Dir.glob(roles_glob).map { |r| File.basename(r).chomp('.json') }
+    end
+
     # Shell out a command to be run in chef context
     def chef_exec(command)
       sh %(chef exec #{command})
