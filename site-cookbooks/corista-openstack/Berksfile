@@ -3,3 +3,5 @@ source 'https://supermarket.chef.io'
 metadata
 
 cookbook "openstack-common", github: "openstack/cookbook-openstack-common"
+cookbook "openstack-compute", github: "openstack/cookbook-openstack-compute"
+cookbook "openstack-dashboard", github: "openstack/cookbook-openstack-dashboard"
