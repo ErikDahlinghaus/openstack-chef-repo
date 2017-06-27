@@ -222,7 +222,7 @@
         },
         "conf": {
           "DEFAULT": {
-            "log_dir": "",
+            "log_dir": ""
           },
           "api": {
             "auth_strategy": "keystone"
