@@ -42,10 +42,10 @@ The machines have the following interfaces configured.
 |  compute1  |  br-vlan  |                |     eno2     | VLAN Provider Network Bridge             |
 
 # Install and Configure Nodes
-On each node from a local terminal run the following commands.
-
 ## Prerequisites
 `compute` and `controller` nodes must have a fresh install of Ubuntu 16.04 server and a default user named `corista`.
+
+On each node from a local terminal run the following commands.
 
 ```sh
 # become `root` so you can break the system.
@@ -124,7 +124,23 @@ openstack group add user developers $USER
 ```
 
 ## Networks
-__in progress__
+We must also create a provider network for Openstack VMs to connect to. We are using a VLAN provider network. Follow the steps below to configure the VLAN provider network.
 
-# Developing
+```sh
+sudo -s
+
+# source credentials for openstack client
+source /root/openrc
+
+# create the VLAN201 provider network
+openstack network create --project admin --external --default --share --provider-network-type vlan --provider-physical-network br-vlan --provider-segment 201 vlan201
+
+# create the subnet for network vlan201
+openstack subnet create --project admin --subnet-range 192.168.201.0/24 --ip-version 4 --network vlan201 --dhcp --allocation-pool start=192.168.201.50,end=192.168.201.250 --dns-nameserver 192.168.201.1 default201
+```
+
+## Other
+Log in to the `controller` @ [192.168.200.10](http://192.168.200.10) to perform other configuration and launch instances.
+
+# More reading
 Have a look at [`openstack/openstack-chef-repo/doc/databags.md`](https://github.com/openstack/openstack-chef-repo/blob/master/doc/databags.md), [`.chef/knife.rb`](.chef/knife.rb), [`Berksfile`](Berksfile), [`Rakefile`](Rakefile), and [`site-cookbooks/corista-openstack`](site-cookbooks/corista-openstack).
