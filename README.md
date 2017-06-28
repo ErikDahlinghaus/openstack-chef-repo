@@ -1,39 +1,57 @@
 # openstack-chef-repo
 Derived from: https://github.com/openstack/openstack-chef-repo
 
-This cookbook uses chef-client in solo mode to install components for openstack on various nodes. We encapsulate the configuration of the entire openstack system in [`environments/corista-openstack.json`](environments/corista-openstack.json). We describe our nodes and override necessary configuration in [`roles/`](roles).
+This cookbook uses `chef-client` in solo mode to install openstack components on multiple nodes. We encapsulate the configuration of the entire openstack system in [`environments/corista-openstack.json`](environments/corista-openstack.json). We describe our nodes and override necessary configuration in [`roles/`](roles).
 
-**NOTE**! The environment overrides the attribute from the role, so care must be taken when setting environment attributes.
+__**NOTE!**: `environment.override_attributes` overrides `role.override_attributes`, so care must be taken when setting attributes in the environment file__
 
-Currently we operate two nodes, a [controller](roles/corista-openstack-controller.json) node and a [compute1](roles/corista-openstack-compute1.json) node. We use [`sites-cookbooks/corista-openstack`](site-cookbooks/corista-openstack) to patch things in the existing `cookbook-openstack-*` cookbooks or add functionality.
+Currently we operate two nodes, a [controller](roles/corista-openstack-controller.json) node and a [compute1](roles/corista-openstack-compute1.json) node. We use [`sites-cookbooks/corista-openstack`](site-cookbooks/corista-openstack) to patch things in the existing [`openstack/cookbook-openstack-*`](https://github.com/openstack?q=cookbook-openstack-) cookbooks or add functionality.
 
 # Prereqs
-Two nodes with at least two NICs. A fresh install of Ubuntu 16 server, and a default user named `corista`. Hostnames of the machines should be `controller`, and `compute1` respectively.
+Two machines with at least two NICs each. A fresh install of Ubuntu 16 server, and a default user named `corista`. Hostnames of the machines should be `controller`, and `compute1` respectively.
+__in_progress__
+## Physical Networks
+__in_progress__
+## Machines
+__in_progress__
 
 # Getting started
 __in progress__
-## Each node
 On each node from a local terminal run the following commands.
 
-* Be `root` so you can break the system.
-  - `sudo -s`
-* Git this repo
-  - `mkdir -p /opt/corista`
-  - `cd /opt/corista`
-  - `git clone git@github.com:ErikDahlinghaus/openstack-chef-repo.git`
-* Go there
-  - `cd /opt/corista/openstack-chef-repo`
-* Install ChefDK.
-  - `./install_chefdk.sh`
-* Vendor the cookbooks
-  - `chef exec rake berks_vendor`
-* Check which tasks are available
-  - `chef exec rake -T`
-* Install components for a controller node
-  - `chef exec rake controller:install`
+```sh
+# become `root` so you can break the system.
+sudo -s
+
+# install git
+apt install -y git
+
+# git this repo
+mkdir -p /opt/corista
+cd /opt/corista
+git clone git@github.com:ErikDahlinghaus/openstack-chef-repo.git
+cd openstack-chef-repo
+
+# install chefdk
+./install_chefdk.sh
+
+# vendor the cookbooks
+# * downloads all the cookbooks from the Berksfile and puts them in cookbooks/
+chef exec berks_vendor
+
+# check which tasks are available to build
+chef exec rake -T
+
+# choose the appropriate task
+# if this were the controller node
+#chef exec rake controller:install
+
+# if this were the compute1 node
+#chef exec rake compute1:install
+```
 
 # Manual configuration steps
-Perform these steps on the `controller` node. This will set up the openstack cluster for use using the openstack API through the `openstack` CLI.
+Perform these steps on the `controller` node after the install is complete. This will configure the openstack cluster for use using the openstack API through the `openstack` CLI.
 
 ## Projects, groups, roles, and users
 First we create our default project where we will spawn most of our instances. Then we create a `developers` group which we will add regular users to. We create a role `developer` which can be assigned to things in the future. We associate the `developers` group with the `developer` and `admin` roles and the `corista` project. Now any user added to the `developers` group will become an admin on the `corista` project.
@@ -77,5 +95,5 @@ openstack group add user developers $USER
 ## Networks
 __in progress__
 
-# Development
+# Developing
 Have a look at [`Berksfile`](Berksfile), [`Rakefile`](Rakefile), and [`site-cookbooks/corista-openstack/README.md`](site-cookbooks/corista-openstack/README.md).

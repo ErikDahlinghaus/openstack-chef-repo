@@ -1,8 +1,8 @@
 # corista-openstack
-This cookbook p
-Provides simple recipes for use in roles to facilitate an openstack deploy.
+Provides recipes that patch or add to [`openstack/cookbook-openstack-*`](https://github.com/openstack?q=cookbook-openstack-) cookbooks.
 
 # recipes
+__in progress__
 
 ## corista-openstack::corista_user
 * sets up some convenience stuff for the default user `corista`
