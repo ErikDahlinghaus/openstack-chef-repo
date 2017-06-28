@@ -13,13 +13,18 @@ module CoristaOpenStack
       CHEF_REPO_DIR = File.expand_path(File.join(File.dirname(__FILE__), '..')).freeze
     end
 
+    # Save our knife config option
+    unless defined? CONFIG_OPT
+      CONFIG_OPT = "--config #{CHEF_REPO_DIR}/.chef/knife.rb".freeze
+    end
+
     # default chef-client opts
     unless defined? CHEF_CLIENT_OPTS
       CHEF_CLIENT_OPTS = [
         '--force-formatter',
         '--no-color',
         '-z',
-        "--config #{CHEF_REPO_DIR}/.chef/knife.rb",
+        CONFIG_OPT,
         "-E corista-openstack"
       ].join(' ').freeze
     end

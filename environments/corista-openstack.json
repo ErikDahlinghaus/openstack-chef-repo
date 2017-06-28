@@ -11,13 +11,6 @@
     },
     "apt": {
       "compile_time_update" : true
-    },
-    "openstack": {
-      "common": {
-        "services": {
-          "dns": "designate"
-        }
-      }
     }
   },
   "override_attributes": {
@@ -274,7 +267,7 @@
               "ml2": {
                 "type_drivers": "flat,vlan",
                 "tenant_network_types": "",
-                "extension_drivers": "port_security,dns"
+                "extension_drivers": "port_security"
               },
               "ml2_type_flat": {
                 "flat_networks": "provider"
