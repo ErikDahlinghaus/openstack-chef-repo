@@ -139,7 +139,7 @@ openstack network create --project admin --external --default --share --provider
 openstack subnet create --project admin --subnet-range 192.168.201.0/24 --ip-version 4 --network vlan201 --dhcp --allocation-pool start=192.168.201.50,end=192.168.201.250 --dns-nameserver 192.168.201.1 default201
 ```
 
-## Other
+## Test Drive
 Log in to the `controller` @ [192.168.200.10](http://192.168.200.10) to perform other configuration (like adjusting the security groups, or create flavors) or to launch instances.
 
 # More reading
