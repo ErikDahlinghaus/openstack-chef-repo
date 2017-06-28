@@ -227,7 +227,7 @@
             "log_dir": ""
           },
           "console": {
-            "allowed_origins": "controller, controller.corista.local, 192.168.200.10"
+            "allowed_origins": "192.168.200.10, controller, controller.corista.local, openstack.corista.local"
           },
           "api": {
             "auth_strategy": "keystone"

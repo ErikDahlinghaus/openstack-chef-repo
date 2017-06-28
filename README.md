@@ -9,6 +9,9 @@ We use [`sites-cookbooks/corista-openstack`](site-cookbooks/corista-openstack) t
 
 Currently we operate two nodes, a [controller](roles/corista-openstack-controller.json) node and a [compute1](roles/corista-openstack-compute1.json) node.
 
+# Architecture
+__in_progress__
+
 # Prerequisites
 Two machines with at least two NICs each. A fresh install of Ubuntu 16 server, and a default user named `corista`. Hostnames of the machines should be `controller`, and `compute1` respectively.
 
@@ -20,7 +23,7 @@ __in_progress__
 ## Machines
 __in_progress__
 
-# Install and Configure nodes
+# Install and Configure Nodes
 On each node from a local terminal run the following commands.
 
 __in progress__
@@ -56,11 +59,14 @@ chef exec rake -T
 #chef exec rake compute1:install
 ```
 
-# Manual configuration steps
+> **NOTE**: After chef runs successfully, the instances can be accessed via SSH with username `corista` and private key `.chef/openstack_cluster.pem`.
+
+
+# Manual Configuration Steps
 Perform these steps on the `controller` node after the install is complete. This will configure the openstack cluster for use using the openstack API through the `openstack` CLI.
 
-## Projects, groups, roles, and users
-First we create our default project where we will spawn most of our instances. Then we create a `developers` group which we will add regular users to. We create a role `developer` which can be assigned to things in the future. We associate the `developers` group with the `developer` and `admin` roles and the `corista` project. Now any user added to the `developers` group will become an admin on the `corista` project.
+## Projects, Groups, Roles, and Users
+First we create our default project where we will spawn most of our instances. Then we create a `developers` group which we will add regular users to. We create a role `developer` which can be assigned to things in the future. We associate the `developers` group with the `developer` and `admin` roles and the `corista` project. Now any user added to the `developers` group will become an admin on the `corista` project. Follow the steps below in order from the `controller` node.
 
 ```sh
 sudo -s
