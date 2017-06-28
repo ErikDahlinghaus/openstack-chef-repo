@@ -78,7 +78,7 @@ chef exec rake -T
 #chef exec rake compute1:install
 ```
 
-> **NOTE**: After chef runs successfully, the instances can be accessed via SSH with username `corista` and private key `.chef/openstack_cluster.pem`.
+> **NOTE**: After chef runs successfully, the nodes can be accessed via SSH with username `corista` and private key `.chef/openstack_cluster.pem`.
 
 
 # Manual Configuration Steps
