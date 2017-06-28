@@ -7,7 +7,7 @@ class ::Chef::Recipe
   include ::Openstack
 end
 
-conf = default['openstack']['network_dns']['conf']
+conf = node.default['openstack']['network_dns']['conf']
 
 # keystone_authtoken
 identity_admin_endpoint = admin_endpoint 'identity'
