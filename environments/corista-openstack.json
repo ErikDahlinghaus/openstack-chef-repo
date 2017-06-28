@@ -265,7 +265,7 @@
               "ml2": {
                 "type_drivers": "flat,vlan",
                 "tenant_network_types": "",
-                "extension_drivers": "port_security"
+                "extension_drivers": "port_security,dns"
               },
               "ml2_type_flat": {
                 "flat_networks": "provider"
@@ -299,6 +299,9 @@
           }
         },
         "conf": {
+          "DEFAULT": {
+            "dns_domain": "corista.services"
+          },
           "neutron": {
             "service_metadata_proxy": true
           }
