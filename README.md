@@ -3,21 +3,25 @@ Derived from: https://github.com/openstack/openstack-chef-repo
 
 This cookbook uses `chef-client` in solo mode to install openstack components on multiple nodes. We encapsulate the configuration of the entire openstack system in [`environments/corista-openstack.json`](environments/corista-openstack.json). We describe our nodes and override necessary configuration in [`roles/`](roles).
 
-__**NOTE!**: `environment.override_attributes` overrides `role.override_attributes`, so care must be taken when setting attributes in the environment file__
+> **NOTE!**: `environment.override_attributes` overrides `role.override_attributes`, so care must be taken when setting attributes in the environment file
 
 Currently we operate two nodes, a [controller](roles/corista-openstack-controller.json) node and a [compute1](roles/corista-openstack-compute1.json) node. We use [`sites-cookbooks/corista-openstack`](site-cookbooks/corista-openstack) to patch things in the existing [`openstack/cookbook-openstack-*`](https://github.com/openstack?q=cookbook-openstack-) cookbooks or add functionality.
 
 # Prereqs
 Two machines with at least two NICs each. A fresh install of Ubuntu 16 server, and a default user named `corista`. Hostnames of the machines should be `controller`, and `compute1` respectively.
+
 __in_progress__
+
 ## Physical Networks
 __in_progress__
+
 ## Machines
 __in_progress__
 
 # Getting started
-__in progress__
 On each node from a local terminal run the following commands.
+
+__in progress__
 
 ```sh
 # become `root` so you can break the system.
