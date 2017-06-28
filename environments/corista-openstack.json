@@ -222,7 +222,12 @@
         },
         "conf": {
           "DEFAULT": {
-            "log_dir": ""
+            "log_dir": "",
+            "console_allowed_origins": [
+              "controller",
+              "controller.corista.local",
+              "192.168.200.10"
+            ]
           },
           "api": {
             "auth_strategy": "keystone"
