@@ -7,26 +7,45 @@ This project uses `rake` to execute `chef-client` in solo mode to install openst
 
 We use [`sites-cookbooks/corista-openstack`](site-cookbooks/corista-openstack) to patch things in the existing [`openstack/cookbook-openstack-*`](https://github.com/openstack?q=cookbook-openstack-) cookbooks or add functionality.
 
-Currently we operate two nodes, a [controller](roles/corista-openstack-controller.json) node and a [compute1](roles/corista-openstack-compute1.json) node.
-
 # Architecture
-__in_progress__
+Currently we operate two nodes, a [controller](roles/corista-openstack-controller.json) node and a [compute1](roles/corista-openstack-compute1.json) node. We are using a VLAN provider network configuration. This diagram shows the physical hardware connections as well as the networks on each cable.
 
-# Prerequisites
-Two machines with at least two NICs each. A fresh install of Ubuntu 16 server, and a default user named `corista`. Hostnames of the machines should be `controller`, and `compute1` respectively.
+![Physical network connections](openstack_network.png)
 
-__in_progress__
+## Router
+The router has the following LANS/VLANs configured.
 
-## Physical Networks
-__in_progress__
+| Router Port |      Subnet      | DHCP? |                                                                   Notes                                                                   |
+|:-----------:|:----------------:|:-----:|:-----------------------------------------------------------------------------------------------------------------------------------------:|
+|     eth2    | 192.168.200.0/24 |  Yes  | This functions as the Openstack Management Network. All physical nodes of the Openstack Cluster have a static IP on this network.         |
+|   eth2.201  | 192.168.201.0/24 |  Yes* | This functions at the Openstack VLAN Provider Network. All VMs will get an IP on this network. *DHCP is run by Openstack, not the router. |
+|   eth2.202  | 192.168.202.0/24 |   No  | This network is for expansion if 201 fills up.                                                                                            |
+
+## Switch
+The switch is configured with all ports `Untagged` for `VLAN1` and `Tagged` for `VLAN201` and `VLAN202`.
 
 ## Machines
-__in_progress__
+The machines have the following interfaces configured.
+
+|    Node    | Interface |  IPv4 Address  | Bridge Ports |                   Notes                  |
+|:----------:|:---------:|:--------------:|--------------|:----------------------------------------:|
+| controller |   enp4s0  |                |              | Management Network Physical Interface    |
+| controller |   enp3s0  |                |              | VLAN Provider Network Physical Interface |
+| controller |   enp5s0  |                |              | Expansion (VXLAN, L3)                    |
+| controller |  br-mgmt  | 192.168.200.10 |    enp4s0    | Management Network Bridge                |
+| controller |  br-vlan  |                |    enp3s0    | VLAN Provider Network Bridge             |
+|            |           |                |              |                                          |
+|  compute1  |    eno1   |                |              | Management Network Physical Interface    |
+|  compute1  |    eno2   |                |              | VLAN Provider Network Physical Interface |
+|  compute1  |    eno3   |                |              | Expansion (VXLAN, L3)                    |
+|  compute1  |  br-mgmt  | 192.168.200.30 |     eno1     | Management Network Bridge                |
+|  compute1  |  br-vlan  |                |     eno2     | VLAN Provider Network Bridge             |
 
 # Install and Configure Nodes
 On each node from a local terminal run the following commands.
 
-__in progress__
+## Prerequisites
+`compute` and `controller` nodes must have a fresh install of Ubuntu 16.04 server and a default user named `corista`.
 
 ```sh
 # become `root` so you can break the system.
