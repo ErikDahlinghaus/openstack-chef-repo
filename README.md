@@ -9,7 +9,7 @@ We use [`sites-cookbooks/corista-openstack`](site-cookbooks/corista-openstack) t
 
 Currently we operate two nodes, a [controller](roles/corista-openstack-controller.json) node and a [compute1](roles/corista-openstack-compute1.json) node.
 
-# Prereqs
+# Prerequisites
 Two machines with at least two NICs each. A fresh install of Ubuntu 16 server, and a default user named `corista`. Hostnames of the machines should be `controller`, and `compute1` respectively.
 
 __in_progress__
@@ -20,7 +20,7 @@ __in_progress__
 ## Machines
 __in_progress__
 
-# Getting started
+# Install and Configure nodes
 On each node from a local terminal run the following commands.
 
 __in progress__
@@ -102,4 +102,4 @@ openstack group add user developers $USER
 __in progress__
 
 # Developing
-Have a look at [`Berksfile`](Berksfile), [`Rakefile`](Rakefile), and [`site-cookbooks/corista-openstack`](site-cookbooks/corista-openstack).
+Have a look at [`.chef/knife.rb`](.chef/knife.rb), [`Berksfile`](Berksfile), [`Rakefile`](Rakefile), and [`site-cookbooks/corista-openstack`](site-cookbooks/corista-openstack).
