@@ -140,7 +140,7 @@ openstack subnet create --project admin --subnet-range 192.168.201.0/24 --ip-ver
 ```
 
 ## Other
-Log in to the `controller` @ [192.168.200.10](http://192.168.200.10) to perform other configuration and launch instances.
+Log in to the `controller` @ [192.168.200.10](http://192.168.200.10) to perform other configuration (like adjusting the security groups, or create flavors) or to launch instances.
 
 # More reading
 Have a look at [`openstack/openstack-chef-repo/doc/databags.md`](https://github.com/openstack/openstack-chef-repo/blob/master/doc/databags.md), [`.chef/knife.rb`](.chef/knife.rb), [`Berksfile`](Berksfile), [`Rakefile`](Rakefile), and [`site-cookbooks/corista-openstack`](site-cookbooks/corista-openstack).
