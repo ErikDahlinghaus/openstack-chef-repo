@@ -47,7 +47,8 @@
       "compute": {
         "conf": {
           "DEFAULT": {
-            "my_ip": "192.168.200.10"
+            "my_ip": "192.168.200.10",
+            "enabled_apis": "metadata,ec2,osapi_compute,osapi_volume"
           },
           "vnc": {
             "vncserver_listen": "$my_ip"

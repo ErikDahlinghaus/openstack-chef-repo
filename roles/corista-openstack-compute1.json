@@ -47,7 +47,8 @@
       "compute": {
         "conf": {
           "DEFAULT": {
-            "my_ip": "192.168.200.30"
+            "my_ip": "192.168.200.30",
+            "enabled_apis": "osapi_compute"
           },
           "vnc": {
             "vncserver_listen": "0.0.0.0"
