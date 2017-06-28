@@ -1,5 +1,5 @@
 # corista-openstack
-
+This cookbook p
 Provides simple recipes for use in roles to facilitate an openstack deploy.
 
 # recipes
@@ -13,5 +13,5 @@ Provides simple recipes for use in roles to facilitate an openstack deploy.
 ## corista-openstack::setup_interfaces
 * takes `node['corista-openstack'][:networks]` attribute and sets up physical networks.
 
-## corista-openstack::setup_db
-* wrapper for `openstack-ops-database::server` to fix issue with `mysql_service` resource and grant privs for `root@%`
+## corista-openstack::horizon
+* wraps `openstack-cookbook-dashboard::horizon` to fix configuration items.

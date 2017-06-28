@@ -5,8 +5,8 @@ include CoristaOpenStack::RakeCommon
 # Import other tasks with .rake extension
 Dir.glob('tasks/*.rake').each { |r| import r }
 
-# Vendor cookbooks for use with namespaced tasks
-desc "Vendor your cookbooks"
+# Vendor cookbooks
+desc "Vendor cookbooks"
 task :berks_vendor do
   chef_exec('berks vendor cookbooks')
 end

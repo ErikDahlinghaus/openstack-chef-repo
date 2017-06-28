@@ -11,3 +11,7 @@ vms/
 nodes/
 .chef/local-mode-cache/
 .project
+
+
+corista.key
+corista.key.pub
