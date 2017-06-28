@@ -7,6 +7,7 @@ This cookbook uses chef-client in solo mode to install components for openstack 
 Two nodes with at least two NICs. A fresh install of Ubuntu 16 server, and a default user named `corista`. Hostnames of the machines should be `controller`, and `compute1` respectively.
 
 # Getting started
+## Each node
 On each node from a local terminal run the following commands.
 
 * Be `root` so you can break the system.
@@ -25,6 +26,51 @@ On each node from a local terminal run the following commands.
   - `chef exec rake -T`
 * Install components for a controller node
   - `chef exec rake controller:install`
+
+# Manual configuration steps
+Perform these steps on the `controller` node. This will set up the openstack cluster for use using the openstack API through the `openstack` CLI.
+
+## Projects, groups, roles, and users
+First we create our default project where we will spawn most of our instances. Then we create a `developers` group which we will add regular users to. We create a role `developer` which can be assigned to things in the future. We associate the `developers` group with the `developer` and `admin` roles and the `corista` project. Now any user added to the `developers` group will become an admin on the `corista` project.
+
+```sh
+sudo -s
+
+# source credentials for openstack client
+source /root/openrc
+
+# create corista project
+openstack project create --or-show --enable --description "default corista project" corista
+
+# create developers group
+openstack group create --or-show --description "developers developers" developers
+
+# add developer role (currently associated with nothing)
+openstack role create --or-show developer
+
+# associate developer role with developer group for the corista project
+openstack role add --project corista --group developers developer
+
+# associate admin role with developer group for the corista project
+# * gives anyone in the developers group admin privileges on the corista project
+openstack role add --project corista --group developers admin
+
+# add the corista user, associated with the corista project
+openstack user create --or-show --project corista --description "default corista user" corista
+
+# add the corista user to the developers group
+openstack group add user developers corista
+
+# add other users and associate them with the developers group
+export USER=syang
+# add the $USER user, associated with the corista project
+openstack user create --or-show --project corista $USER
+# add the $USER user to the developers group
+openstack group add user developers $USER
+```
+
+## Networks
+* in progress
 
 # Development
 Have a look at [`Berksfile`](Berksfile), [`Rakefile`](Rakefile), and [`site-cookbooks/corista-openstack/README.md`](site-cookbooks/corista-openstack/README.md).
