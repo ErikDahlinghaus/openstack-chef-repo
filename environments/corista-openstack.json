@@ -11,6 +11,13 @@
     },
     "apt": {
       "compile_time_update" : true
+    },
+    "openstack": {
+      "common": {
+        "services": {
+          "dns": "designate"
+        }
+      }
     }
   },
   "override_attributes": {
@@ -88,6 +95,7 @@
           "orchestration-api-cloudwatch": { "host": "192.168.200.10" }
         },
         "public": {
+          "dns": { "host": "0.0.0.0" },
           "network": { "host": "0.0.0.0" },
           "identity": { "host": "192.168.200.10" },
           "image_api": { "host": "192.168.200.10" },
@@ -182,6 +190,7 @@
           "orchestration-api-cloudwatch": { "host": "192.168.200.10" }
         },
         "public": {
+          "dns": { "host": "192.168.200.10" },
           "identity": { "host": "192.168.200.10" },
           "network": { "host": "192.168.200.10" },
           "image_api": { "host": "192.168.200.10" },

@@ -15,3 +15,7 @@ nodes/
 
 corista.key
 corista.key.pub
+
+
+# temp
+openstack-cookbooks/

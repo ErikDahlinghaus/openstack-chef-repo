@@ -91,6 +91,7 @@
     "recipe[openstack-network::metadata_agent]",
     "recipe[openstack-network::server]",
     "recipe[openstack-network::identity_registration]",
+    "recipe[corista-openstack::dns]",
     "recipe[corista-openstack::horizon]",
     "recipe[openstack-image::image_upload]"
   ],
