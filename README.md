@@ -102,4 +102,4 @@ openstack group add user developers $USER
 __in progress__
 
 # Developing
-Have a look at [`.chef/knife.rb`](.chef/knife.rb), [`Berksfile`](Berksfile), [`Rakefile`](Rakefile), and [`site-cookbooks/corista-openstack`](site-cookbooks/corista-openstack).
+Have a look at [`openstack/openstack-chef-repo/doc/databags.md`][https://github.com/openstack/openstack-chef-repo/blob/master/doc/databags.md], [`.chef/knife.rb`](.chef/knife.rb), [`Berksfile`](Berksfile), [`Rakefile`](Rakefile), and [`site-cookbooks/corista-openstack`](site-cookbooks/corista-openstack).
